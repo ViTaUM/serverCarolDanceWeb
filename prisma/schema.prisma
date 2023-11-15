@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Evento {
+  id          String   @id @default(uuid())
+  title       String
+  img         String
+  overview    String
+  releaseDate DateTime
+}
+
+model Assentos {
+  id          String  @id @default(uuid())
+  name        String
+  isAvailable Boolean
+  valor       String
+}
+
+model Assentos_reservas {
+  id              String   @id @default(uuid())
+  nome_comprador  String
+  cpf_comprador   String
+  email_comprador String
+  valor_total     String
+  data_cadastro   DateTime
+}
